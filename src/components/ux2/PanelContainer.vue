@@ -1,5 +1,6 @@
 <script setup>
 import { ref, computed } from 'vue'
+import ComponentLibrary from './ComponentLibrary.vue'
 
 const props = defineProps({
   activePanel: {
@@ -34,15 +35,18 @@ const panelContent = computed(() => {
 </script>
 
 <template>
-  <div 
-    v-if="activePanel && ['components', 'modules', 'variables', 'history'].includes(activePanel)" 
-    class="panel-container bg-[#eaf2fa] border-r border-gray-200 h-full overflow-auto flex-shrink-0"
+  <div
+    v-if="activePanel && ['components', 'modules', 'variables', 'history'].includes(activePanel)"
+    class="panel-container bg-[#eaf2fa] shadow-lg/25 relative z-11 h-full overflow-y-auto flex-shrink-0 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
     :style="{ width: `${panelWidth}px` }"
   >
     <div class="p-4">
-      <h3 class="text-lg font-semibold text-gray-800 mb-4">{{ panelContent?.title }}</h3>
-      <div class="text-gray-600">
-        {{ panelContent?.content }}
+      <ComponentLibrary v-if="activePanel === 'components'" />
+      <div v-else>
+        <h3 class="text-lg font-semibold text-gray-800 mb-4">{{ panelContent?.title }}</h3>
+        <div class="text-gray-600">
+          {{ panelContent?.content }}
+        </div>
       </div>
     </div>
   </div>
