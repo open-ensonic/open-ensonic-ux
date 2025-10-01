@@ -9,7 +9,7 @@
             class="w-8 h-8 flex items-center justify-center text-gray-400 hover:text-white hover:bg-white/10 rounded transition-colors duration-150"
             :title="tool.tooltip"
         >
-          <img :src="tool.src" class="w-4 h-4"/>
+          <img :src="tool.src" class="w-4 h-4 hover:brightness-0 hover:invert"/>
         </button>
         <div v-else class="w-px h-6 bg-gray-600 mx-2"></div>
       </div>
@@ -27,7 +27,7 @@
         class="w-8 h-8 flex items-center justify-center text-gray-400 hover:text-white hover:bg-white/10 rounded transition-colors duration-150"
         :title="tool.tooltip"
       >
-        <img :src="tool.src" class="w-4 h-4"/>
+        <img :src="tool.src" class="w-4 h-4 hover:brightness-0 hover:invert"/>
       </button>
     </div>
   </div>
