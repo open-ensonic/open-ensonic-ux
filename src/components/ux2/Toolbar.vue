@@ -61,7 +61,7 @@ const tooltips = [
             <div class="w-8 h-8 rounded flex items-center justify-center">
               <img :src="item.icon" :alt="item.tooltip" class="w-4 h-4">
             </div>
-            <div class="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 px-2 py-1 bg-gray-800 text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap z-10">
+            <div class="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 px-2 py-1 bg-gray-800/90 text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap z-10 before:content-[''] before:absolute before:bottom-full before:left-1/2 before:transform before:-translate-x-1/2 before:border-4 before:border-transparent before:border-b-gray-800/90">
               {{ item.tooltip }}
             </div>
           </div>
@@ -74,7 +74,7 @@ const tooltips = [
             <div class="w-8 h-8 rounded flex items-center justify-center">
               <img :src="item.icon" :alt="item.tooltip" class="w-4 h-4">
             </div>
-            <div class="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 px-2 py-1 bg-gray-800 text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap z-10">
+            <div class="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 px-2 py-1 bg-gray-800/90 text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap z-10 before:content-[''] before:absolute before:bottom-full before:left-1/2 before:transform before:-translate-x-1/2 before:border-4 before:border-transparent before:border-b-gray-800/90">
               {{ item.tooltip }}
             </div>
           </div>
@@ -87,7 +87,7 @@ const tooltips = [
             <div class="w-8 h-8 rounded flex items-center justify-center">
               <img :src="item.icon" :alt="item.tooltip" class="w-4 h-4">
             </div>
-            <div class="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 px-2 py-1 bg-gray-800 text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap z-10">
+            <div class="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 px-2 py-1 bg-gray-800/90 text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap z-10 before:content-[''] before:absolute before:bottom-full before:left-1/2 before:transform before:-translate-x-1/2 before:border-4 before:border-transparent before:border-b-gray-800/90">
               {{ item.tooltip }}
             </div>
           </div>
@@ -100,7 +100,7 @@ const tooltips = [
             <div class="w-8 h-8 rounded flex items-center justify-center">
               <img :src="item.icon" :alt="item.tooltip" class="w-4 h-4">
             </div>
-            <div class="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 px-2 py-1 bg-gray-800 text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap z-10">
+            <div class="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 px-2 py-1 bg-gray-800/90 text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap z-10 before:content-[''] before:absolute before:bottom-full before:left-1/2 before:transform before:-translate-x-1/2 before:border-4 before:border-transparent before:border-b-gray-800/90">
               {{ item.tooltip }}
             </div>
           </div>
@@ -113,7 +113,8 @@ const tooltips = [
           <div class="w-8 h-8 rounded flex items-center justify-center">
             <img :src="item.icon" :alt="item.tooltip" class="w-4 h-4">
           </div>
-          <div class="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 px-2 py-1 bg-gray-800 text-white  rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap z-10 text-xs">
+          <div :class="['absolute top-full mt-2 px-2 py-1 bg-gray-800/90 text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap z-10 before:content-[\'\'] before:absolute before:bottom-full before:border-4 before:border-transparent before:border-b-gray-800/90', 
+                       index === rightIcons.length - 1 ? 'right-0 before:right-2' : 'left-1/2 transform -translate-x-1/2 before:left-1/2 before:transform before:-translate-x-1/2']">
             {{ item.tooltip }}
           </div>
         </div>
