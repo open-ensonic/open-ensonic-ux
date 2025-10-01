@@ -10,6 +10,8 @@ const modulesIcon = new URL('/src/assets/images/cube.svg', import.meta.url).href
 const variablesIcon = new URL('/src/assets/images/puzzle-piece.svg', import.meta.url).href
 const historyIcon = new URL('/src/assets/images/code-branch.svg', import.meta.url).href
 const topIcon = new URL('/src/assets/images/top.png', import.meta.url).href
+const helpIcon = new URL('/src/assets/images/interrogation.svg', import.meta.url).href
+const settingsIcon = new URL('/src/assets/images/settings.svg', import.meta.url).href
 const bottomIcon = new URL('/src/assets/images/bottom.png', import.meta.url).href
 
 const topMenuItems = [
@@ -20,8 +22,8 @@ const topMenuItems = [
 ]
 
 const bottomMenuItems = [
-  { id: 5, icon: '?', text: '帮助' },
-  { id: 6, icon: 'S', text: '设置' }
+  { id: 5, icon: helpIcon, text: '帮助' },
+  { id: 6, icon: settingsIcon, text: '设置' }
 ]
 
 const togglePanel = (panel) => {
@@ -75,9 +77,9 @@ const emit = defineEmits(['panelToggle'])
     <div class="p-4 border-t border-gray-200">
       <ul class="space-y-2">
         <li v-for="item in bottomMenuItems" :key="item.id" class="menu-item">
-          <a href="#" class="menu-link flex flex-col items-center p-3 rounded-lg hover:bg-gray-100 transition-colors text-gray-700">
-            <div class="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center mb-2">
-              <span class="text-sm font-medium text-gray-600">{{ item.icon }}</span>
+          <a href="#" class="menu-link flex flex-col items-center p-3 rounded-lg text-gray-700">
+            <div class="w-8 h-8 flex items-center justify-center mb-2">
+              <img :src="item.icon" :alt="item.text" class="w-6 h-6">
             </div>
             <span class="text-sm">{{ item.text }}</span>
           </a>
