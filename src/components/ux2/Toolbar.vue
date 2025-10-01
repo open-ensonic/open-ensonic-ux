@@ -113,7 +113,7 @@ const tooltips = [
           <div class="w-8 h-8 rounded flex items-center justify-center">
             <img :src="item.icon" :alt="item.tooltip" class="w-4 h-4">
           </div>
-          <div class="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 px-2 py-1 bg-gray-800 text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap z-10">
+          <div class="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 px-2 py-1 bg-gray-800 text-white  rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap z-10 text-xs">
             {{ item.tooltip }}
           </div>
         </div>
