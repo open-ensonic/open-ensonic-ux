@@ -8,9 +8,9 @@ import FlowCanvas from './FlowCanvas.vue'
   <main class="main-content flex flex-col w-full h-full">
     <!-- 工具栏 -->
     <Toolbar />
-    
+
     <!-- 内容区域 - Vue Flow画布 -->
-    <div class="content-area flex-1 bg-red-500">
+    <div class="content-area flex-1 bg-gray-50">
       <FlowCanvas />
     </div>
   </main>

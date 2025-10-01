@@ -2,7 +2,6 @@
 import { VueFlow, useVueFlow } from '@vue-flow/core'
 import { Background } from '@vue-flow/background'
 import { Controls } from '@vue-flow/controls'
-import { MiniMap } from '@vue-flow/minimap'
 
 const initialNodes = [
   {
@@ -37,19 +36,19 @@ const { onConnect, addEdges, updateNode } = useVueFlow()
 </script>
 
 <template>
-  <VueFlow 
+  <VueFlow
     :nodes="initialNodes"
     :edges="initialEdges"
-              :default-viewport="{ zoom: 0.8 }"
-            :min-zoom="0.2"
-            :max-zoom="4"
+    :default-viewport="{ zoom: 1, x: 0, y: 0 }"
+    :min-zoom="0.2"
+    :max-zoom="4"
     class="vue-flow-container"
     @connect="onConnect"
-    fit-view-on-init
+    :fit-view-on-init="true"
+    :fit-view-on-init-options="{ padding: 0 }"
   >
     <Background pattern-color="#aaa" gap="20" />
     <Controls />
-    <MiniMap />
   </VueFlow>
 </template>
 
@@ -57,7 +56,7 @@ const { onConnect, addEdges, updateNode } = useVueFlow()
 .vue-flow-container {
   width: 100%;
   height: 100%;
-  min-height: 500px;
+  min-height: 0;
 }
 
 .vue-flow__node {

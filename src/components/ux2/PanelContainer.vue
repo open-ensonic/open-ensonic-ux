@@ -36,7 +36,7 @@ const panelContent = computed(() => {
 <template>
   <div 
     v-if="activePanel && ['components', 'modules', 'variables', 'history'].includes(activePanel)" 
-    class="panel-container bg-white border-r border-gray-200 h-full overflow-auto"
+    class="panel-container bg-[#eaf2fa] border-r border-gray-200 h-full overflow-auto flex-shrink-0"
     :style="{ width: `${panelWidth}px` }"
   >
     <div class="p-4">

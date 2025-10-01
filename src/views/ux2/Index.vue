@@ -28,8 +28,10 @@ const handleFooterPanelToggle = (panel) => {
     <Header />
     <div class="main-layout">
       <Sidebar @panelToggle="handleSidebarPanelToggle" />
-      <PanelContainer :activePanel="activePanel" />
-      <MainContent :class="{ 'ml-0': !activePanel, 'ml-80': activePanel }" />
+      <div class="content-area">
+        <PanelContainer :activePanel="activePanel" />
+        <MainContent class="flex-1" />
+      </div>
     </div>
     <Footer :activePanel="activePanel" @panelToggle="handleFooterPanelToggle" />
   </div>
@@ -46,6 +48,11 @@ const handleFooterPanelToggle = (panel) => {
   display: flex;
   flex: 1;
   overflow: hidden;
-  position: relative;
+}
+
+.content-area {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
 }
 </style>

@@ -4,11 +4,17 @@ import { ref } from 'vue'
 // 左侧边栏组件
 const activePanel = ref(null)
 
+// 图标引入
+const componentsIcon = new URL('/src/assets/images/objects-column.svg', import.meta.url).href
+const modulesIcon = new URL('/src/assets/images/cube.svg', import.meta.url).href
+const variablesIcon = new URL('/src/assets/images/puzzle-piece.svg', import.meta.url).href
+const historyIcon = new URL('/src/assets/images/code-branch.svg', import.meta.url).href
+
 const topMenuItems = [
-  { id: 1, icon: 'C', text: '组件', panel: 'components' },
-  { id: 2, icon: 'M', text: '模块', panel: 'modules' },
-  { id: 3, icon: 'V', text: '变量', panel: 'variables' },
-  { id: 4, icon: 'H', text: '历史', panel: 'history' }
+  { id: 1, icon: componentsIcon, text: '组件', panel: 'components' },
+  { id: 2, icon: modulesIcon, text: '模块', panel: 'modules' },
+  { id: 3, icon: variablesIcon, text: '变量', panel: 'variables' },
+  { id: 4, icon: historyIcon, text: '历史', panel: 'history' }
 ]
 
 const bottomMenuItems = [
@@ -27,9 +33,9 @@ const emit = defineEmits(['panelToggle'])
 </script>
 
 <template>
-  <aside class="bg-white  w-[80px] h-full flex flex-col">
+  <aside class="bg-white  w-[80px] h-full flex flex-col shadow relative z-1">
     <!-- 顶部菜单项 -->
-    <div class="flex-1 p-4">
+    <div class="flex-1 py-4">
       <ul class="space-y-2">
         <li v-for="item in topMenuItems" :key="item.id" class="menu-item">
           <button
@@ -45,14 +51,7 @@ const emit = defineEmits(['panelToggle'])
                 activePanel === item.panel ? 'bg-blue-500' : 'bg-gray-200'
               ]"
             >
-              <span
-                :class="[
-                  'text-sm font-medium',
-                  activePanel === item.panel ? 'text-white' : 'text-gray-600'
-                ]"
-              >
-                {{ item.icon }}
-              </span>
+              <img :src="item.icon" :alt="item.text" class="w-4 h-4">
             </div>
             <span class="text-sm">{{ item.text }}</span>
           </button>
@@ -76,24 +75,7 @@ const emit = defineEmits(['panelToggle'])
   </aside>
 </template>
 
-<script>
-export default {
-  data() {
-    return {
-      topMenuItems: [
-        { id: 1, icon: 'C', text: '组件' },
-        { id: 2, icon: 'M', text: '模块' },
-        { id: 3, icon: 'V', text: '变量' },
-        { id: 4, icon: 'H', text: '历史' }
-      ],
-      bottomMenuItems: [
-        { id: 5, icon: '?', text: '帮助' },
-        { id: 6, icon: 'S', text: '设置' }
-      ]
-    }
-  }
-}
-</script>
+
 
 <style scoped>
 /* 保留空样式块以保持结构完整性 */
