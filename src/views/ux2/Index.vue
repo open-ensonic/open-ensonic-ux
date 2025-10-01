@@ -27,7 +27,7 @@ const handleFooterPanelToggle = (panel) => {
   <div class="app-layout">
     <Header />
     <div class="main-layout">
-      <Sidebar @panelToggle="handleSidebarPanelToggle" />
+      <Sidebar :activePanel="activePanel" @panelToggle="handleSidebarPanelToggle" />
       <div class="content-area">
         <PanelContainer :activePanel="activePanel" />
         <MainContent class="flex-1" />

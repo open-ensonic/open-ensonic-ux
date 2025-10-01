@@ -1,8 +1,13 @@
 <script setup>
-import { ref } from 'vue'
+import { defineProps, defineEmits } from 'vue'
 
 // 左侧边栏组件
-const activePanel = ref('components')
+const props = defineProps({
+  activePanel: {
+    type: String,
+    default: null
+  }
+})
 
 // 图标引入
 const componentsIcon = new URL('/src/assets/images/objects-column.svg', import.meta.url).href
@@ -27,9 +32,13 @@ const bottomMenuItems = [
 ]
 
 const togglePanel = (panel) => {
-  activePanel.value = activePanel.value === panel ? null : panel
-  // 发射事件给父组件
-  emit('panelToggle', activePanel.value)
+  // 如果点击的是当前激活的面板，则关闭
+  if (props.activePanel === panel) {
+    emit('panelToggle', null)
+  } else {
+    // 否则打开新的面板
+    emit('panelToggle', panel)
+  }
 }
 
 // 定义emit
@@ -42,15 +51,15 @@ const emit = defineEmits(['panelToggle'])
     <div class="flex-1 pb-4 ">
       <ul class="space-y-3">
         <li v-for="(item,index) in topMenuItems" :key="item.id" class="menu-item relative">
-          <div class="w-[calc(100%+9%)] absolute left-0 top-[-25px] z-2" v-if="index &&  activePanel === item.panel">
+          <div class="w-[calc(100%+9%)] absolute left-0 top-[-25px] z-2" v-if="index &&  props.activePanel === item.panel">
             <img :src="topIcon" alt="top" class="w-full">
           </div>
-          <div class="w-[10px] h-full absolute right-[-5px] top-0 bg-[#eaf2fa] z-2 "  v-if="activePanel === item.panel"  />
+          <div class="w-[10px] h-full absolute right-[-5px] top-0 bg-[#eaf2fa] z-2 "  v-if="props.activePanel === item.panel"  />
           <button
             @click="togglePanel(item.panel)"
             :class="[
               'menu-link w-full flex flex-col items-center p-3  cursor-pointer',
-              activePanel === item.panel ? 'bg-[#eaf2fa] text-blue-700' : 'text-gray-700'
+              props.activePanel === item.panel ? 'bg-[#eaf2fa] text-blue-700' : 'text-gray-700'
             ]"
           >
 
@@ -60,13 +69,13 @@ const emit = defineEmits(['panelToggle'])
                 :src="item.icon"
                 :alt="item.text"
                 class="w-6 h-6 transition-colors duration-200"
-                :style="{ filter: activePanel === item.panel ? 'invert(18%) sepia(90%) saturate(3000%) hue-rotate(220deg)' : 'invert(42%) sepia(8%) saturate(800%) hue-rotate(210deg)' }"
+                :style="{ filter: props.activePanel === item.panel ? 'invert(18%) sepia(90%) saturate(3000%) hue-rotate(220deg)' : 'invert(42%) sepia(8%) saturate(800%) hue-rotate(210deg)' }"
               />
 
             </div>
-            <span :class="['text-sm', activePanel === item.panel ? 'font-bold' : '']">{{ item.text }}</span>
+            <span :class="['text-sm', props.activePanel === item.panel ? 'font-bold' : '']">{{ item.text }}</span>
           </button>
-          <div class="w-[calc(100%+9%)] absolute left-0 bottom-[-25px] z-2 "  v-if="activePanel === item.panel" >
+          <div class="w-[calc(100%+9%)] absolute left-0 bottom-[-25px] z-2 "  v-if="props.activePanel === item.panel" >
             <img :src="bottomIcon" alt="top" class="w-full">
           </div>
         </li>
