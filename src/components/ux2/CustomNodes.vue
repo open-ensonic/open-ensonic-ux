@@ -1,6 +1,6 @@
 <template>
   <!-- 自定义节点组件 -->
-  <div class=" w-60  rounded-lg overflow-hidden  shadow-xl/3 !bg-white/30 border-0">
+  <div class=" w-60  rounded-lg overflow-hidden  shadow-xl/3 !bg-white/40 border-0">
     <!-- 半透明背景 -->
 
 
@@ -25,16 +25,18 @@
 
     <!-- 左侧连接点（输入） -->
     <Handle
+      v-if="showLeftHandle"
       type="target"
       :position="Position.Left"
-      class="absolute left-[-8px] top-1/2 transform -translate-y-1/2"
+      class="absolute !top-[calc(50%+23px)] transform -translate-y-1/2 !w-[10px] !h-[46px] !rounded !bg-[#193fe0] !border-0"
     />
 
     <!-- 右侧连接点（输出） -->
     <Handle
+      v-if="showRightHandle"
       type="source"
       :position="Position.Right"
-      class="absolute right-[-8px] top-1/2 transform -translate-y-1/2"
+      class="absolute !top-[calc(50%+30px)] transform -translate-y-1/2 !w-[10px] !h-[46px] !rounded !bg-[#ff5a84] !border-0"
     />
   </div>
 </template>
@@ -73,6 +75,14 @@ export default {
     // 计算属性获取节点标签
     nodeLabel() {
       return this.data?.label || '未命名节点'
+    },
+    // 是否显示左侧连接点（输入）
+    showLeftHandle() {
+      return this.data?.label !== 'Signal Source'
+    },
+    // 是否显示右侧连接点（输出）
+    showRightHandle() {
+      return !this.data?.label?.includes('QT GUI')
     }
   },
   methods: {

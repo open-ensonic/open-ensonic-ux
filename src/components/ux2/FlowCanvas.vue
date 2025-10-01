@@ -3,10 +3,16 @@ import { VueFlow, useVueFlow } from '@vue-flow/core'
 import { Background } from '@vue-flow/background'
 import { Controls } from '@vue-flow/controls'
 import CustomNode from './CustomNodes.vue'
+import CustomEdge from './CustomEdge.vue'
 
 // 节点类型定义
 const nodeTypes = {
   custom: CustomNode
+}
+
+// 边类型定义
+const edgeTypes = {
+  custom: CustomEdge
 }
 
 const initialNodes = [
@@ -65,9 +71,9 @@ const initialNodes = [
 ]
 
 const initialEdges = [
-  { id: 'e1-2', source: '1', target: '2', animated: true },
-  { id: 'e2-3', source: '2', target: '3', animated: true },
-  { id: 'e2-4', source: '2', target: '4', animated: true }
+  { id: 'e1-2', source: '1', target: '2', type: 'custom', animated: true },
+  { id: 'e2-3', source: '2', target: '3', type: 'custom', animated: true },
+  { id: 'e2-4', source: '2', target: '4', type: 'custom', animated: true }
 ]
 
 const { onConnect, addEdges, updateNode } = useVueFlow()
@@ -82,6 +88,12 @@ const handleNodeClose = (nodeId) => {
 const handleNodeClick = (event) => {
   console.log('节点点击:', event)
 }
+
+// 处理边点击事件
+const handleEdgeClick = (event) => {
+  console.log('边点击:', event)
+  // 这里可以添加选中边或显示关闭按钮的逻辑
+}
 </script>
 
 <template>
@@ -89,12 +101,14 @@ const handleNodeClick = (event) => {
     :nodes="initialNodes"
     :edges="initialEdges"
     :node-types="nodeTypes"
+    :edge-types="edgeTypes"
     :default-viewport="{ zoom: 1, x: 0, y: 0 }"
     :min-zoom="0.2"
     :max-zoom="4"
     class="vue-flow-container"
     @connect="onConnect"
     @node-click="handleNodeClick"
+    @edge-click="handleEdgeClick"
     :fit-view-on-init="false"
     :fit-view-on-init-options="{ padding: 0 }"
   >

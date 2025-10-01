@@ -35,7 +35,7 @@ const saveIcon = new URL('/src/assets/images/disk.svg', import.meta.url).href
           <span class="text-xs">清空画布</span>
         </a>
         <a href="#" class="flex flex-col items-center text-gray-500 hover:text-gray-800 transition-colors">
-          <img :src="savePdfIcon" alt="保存PDF" class="w-3 h-3mb-1">
+          <img :src="savePdfIcon" alt="保存PDF" class="w-3 h-3 mb-1">
           <span class="text-xs">保存PDF</span>
         </a>
       </nav>
