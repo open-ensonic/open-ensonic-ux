@@ -9,7 +9,7 @@ const initialNodes = [
     id: '1',
     type: 'input',
     label: '开始节点',
-    position: { x: 250, y: 25 },
+    position: { x: 0, y: 0 },
     class: 'light',
   },
   {

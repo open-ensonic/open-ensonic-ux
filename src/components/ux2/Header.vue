@@ -3,11 +3,11 @@
 </script>
 
 <template>
-  <header class="bg-white shadow-sm border-b border-gray-200 h-16 px-6">
-    <div class="flex items-center justify-between h-full">
+  <header class="bg-white shadow relative z-10  p-4">
+    <div class="flex items-center justify-between">
       <!-- 左侧：logo和文件名 -->
       <div class="flex items-center space-x-4">
-        <div class="text-xl font-bold text-gray-800 bg-red-500">Open Ensonic</div>
+        <div class="text-xl font-bold text-gray-800 bg-red-500">Logo</div>
         <div class="bg-gray-100 px-3 py-1 rounded text-sm text-gray-600 border border-gray-300">
           未命名文件.ux
         </div>
