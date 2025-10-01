@@ -22,14 +22,43 @@
         @click="handleIconClick(icon, index)"
         :title="icon.tooltip"
       >
-        {{ icon.symbol }}
+        <img :src="icon.src" class="w-4 h-4 hover:brightness-0 hover:invert"/>
       </div>
     </div>
   </div>
 </template>
 
 <script setup>
-import { defineProps, defineEmits } from 'vue'
+import {defineProps, defineEmits, defineComponent, ref} from 'vue'
+
+import folderOpen from '@/assets/images2/folder-open.svg'
+import addFolder from '@/assets/images2/add-folder.svg'
+import trash from '@/assets/images2/trash.svg'
+import pdf from '@/assets/images2/file-pdf.svg'
+import save from '@/assets/images2/disk.svg'
+
+const iconButtons = ref([
+  {
+    tooltip: '打开文件',
+    src: folderOpen
+  },
+  {
+    tooltip: '创建文件',
+    src: addFolder
+  },
+  {
+    tooltip: '清空画布',
+    src: trash
+  },
+  {
+    tooltip: '导出pdf',
+    src: pdf
+  },
+  {
+    tooltip: '保存文件',
+    src: save
+  },
+])
 
 // Props
 const props = defineProps({
@@ -45,16 +74,7 @@ const props = defineProps({
     type: String,
     default: 'file_003.ens'
   },
-  iconButtons: {
-    type: Array,
-    default: () => [
-      { symbol: '📁', tooltip: 'Open Folder' },
-      { symbol: '💾', tooltip: 'Save' },
-      { symbol: '📋', tooltip: 'Copy' },
-      { symbol: '📄', tooltip: 'New File' },
-      { symbol: '⚙️', tooltip: 'Settings' }
-    ]
-  }
+
 })
 
 // Events
