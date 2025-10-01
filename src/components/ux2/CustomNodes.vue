@@ -18,7 +18,7 @@
       </div>
 
       <!-- 主体内容 -->
-      <div class="bg-white rounded-lg p-3 text-xs text-gray-600 whitespace-pre-line shadow/5">
+      <div class="bg-white rounded-lg p-3 text-xs text-gray-500 whitespace-pre-line shadow/5 ">
         {{ data?.content || '' }}
       </div>
     </div>
