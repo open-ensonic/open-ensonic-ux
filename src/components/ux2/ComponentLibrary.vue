@@ -1,7 +1,7 @@
 <template>
-  <div class="w-full bg-white text-gray-500 flex flex-col rounded-xl shadow">
+  <div class="w-full bg-white text-gray-500 flex flex-col rounded-xl shadow ">
     <!-- 头部标题 -->
-    <div class="flex items-center px-4 pt-3 pb-0 ">
+    <div class="flex items-center px-4 py-4 ">
       <div class="flex items-center space-x-2 ">
         <div class=" rounded-sm flex items-center justify-center">
           <img :src="objectsColumnGray" class="w-4 h-4" />
@@ -16,7 +16,7 @@
     </div>
 
     <!-- 搜索框 -->
-    <div class="px-4 py-3">
+    <div class="px-4 pt-0 pb-3">
       <div class="relative">
 
         <img :src="search" class="w-4 h-4 absolute left-3 top-1/2 transform -translate-y-1/2 text-black" />
