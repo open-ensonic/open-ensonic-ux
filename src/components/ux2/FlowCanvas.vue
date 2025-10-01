@@ -2,49 +2,100 @@
 import { VueFlow, useVueFlow } from '@vue-flow/core'
 import { Background } from '@vue-flow/background'
 import { Controls } from '@vue-flow/controls'
+import CustomNode from './CustomNodes.vue'
+
+// 节点类型定义
+const nodeTypes = {
+  custom: CustomNode
+}
 
 const initialNodes = [
   {
     id: '1',
-    type: 'input',
-    label: '开始节点',
-    position: { x: 0, y: 0 },
-    class: 'light',
+    type: 'custom',
+    position: { x: 200, y: 300 },
+    data: {
+      label: 'Signal Source',
+      content: `Sample Rate: 32k
+        Waveform: Sine
+        Frequency: 1k
+        Amplitude: 1
+        Offset: 0
+        Initial Phase (Radians): 0
+      `
+    }
   },
   {
     id: '2',
-    type: 'default',
-    label: '处理节点',
-    position: { x: 100, y: 125 },
-    class: 'light',
+    type: 'custom',
+    position: { x: 600, y: 400 },
+    data: {
+      label: 'Throttle',
+      content: `Sample Rate: 32k
+        Limit: None
+      `
+    }
   },
   {
     id: '3',
-    type: 'output',
-    label: '结束节点',
-    position: { x: 250, y: 250 },
-    class: 'light',
+    type: 'custom',
+    position: { x: 1000, y: 200 },
+    data: {
+      label: 'QT GUI Time Sink',
+      content: `Name: Time Display
+        Number of Points: 1.024k
+        Sample Rate: 32k
+        Autoscale: No
+      `
+    }
   },
+  {
+    id: '4',
+    type: 'custom',
+    position: { x: 1200, y: 500 },
+    data: {
+      label: 'QT GUI Frequency Sink',
+      content: `Name: Frequency Display
+        FFT Size: 1024
+        Center Frequency (Hz): 0
+        Bandwidth (Hz): 32k
+      `
+    }
+  }
 ]
 
 const initialEdges = [
   { id: 'e1-2', source: '1', target: '2', animated: true },
-  { id: 'e2-3', source: '2', target: '3' },
+  { id: 'e2-3', source: '2', target: '3', animated: true },
+  { id: 'e2-4', source: '2', target: '4', animated: true }
 ]
 
 const { onConnect, addEdges, updateNode } = useVueFlow()
+
+// 处理节点关闭事件
+const handleNodeClose = (nodeId) => {
+  console.log('关闭节点:', nodeId)
+  // 这里可以添加删除节点的逻辑
+}
+
+// 处理节点点击事件
+const handleNodeClick = (event) => {
+  console.log('节点点击:', event)
+}
 </script>
 
 <template>
   <VueFlow
     :nodes="initialNodes"
     :edges="initialEdges"
+    :node-types="nodeTypes"
     :default-viewport="{ zoom: 1, x: 0, y: 0 }"
     :min-zoom="0.2"
     :max-zoom="4"
     class="vue-flow-container"
     @connect="onConnect"
-    :fit-view-on-init="true"
+    @node-click="handleNodeClick"
+    :fit-view-on-init="false"
     :fit-view-on-init-options="{ padding: 0 }"
   >
     <Background pattern-color="#aaa" gap="20" />
@@ -61,12 +112,12 @@ const { onConnect, addEdges, updateNode } = useVueFlow()
   width: 100%;
   height: 100%;
   min-height: 0;
+  background: #f2f3f8;
+
 }
 
 .vue-flow__node {
-  border: 1px solid #ddd;
   border-radius: 8px;
-  background: white;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
