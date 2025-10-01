@@ -6,9 +6,9 @@
         <div class=" rounded-sm flex items-center justify-center">
           <img :src="objectsColumn" class="w-5 h-5 opacity-60" />
         </div>
-        <span class="text-md font-medium text-gray-2100">组件</span>
+        <span class="text-sm text-gray-2100">组件</span>
       </div>
-      <div class="ml-auto flex space-x-1">
+      <div class="ml-auto flex space-x-3">
         <img :src="search" class="w-4 h-4" />
         <img :src="rotateLeft" class="w-4 h-4" />
         <img :src="angleLeft" class="w-4 h-4" />
@@ -24,7 +24,7 @@
             d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
         </svg>
         <input type="text" placeholder="搜索入组件名称"
-          class="w-full pl-10 pr-4 py-2 bg-[#6f7074] border border-[#6f7074] rounded-md text-sm text-gray-200 placeholder-black focus:outline-none focus:border-transparent"
+          class="w-full pl-10 pr-4 py-2 bg-[#6f7074] border border-[#6f7074] rounded-md text-sm text-neutral-900 placeholder-black focus:outline-none focus:border-transparent"
           v-model="searchQuery">
       </div>
     </div>
@@ -35,7 +35,7 @@
         <!-- 可折叠菜单项 -->
         <div v-for="item in menuItems" :key="item.id" class="mb-1">
           <button @click="toggleItem(item.id)"
-            class="w-full flex items-center px-2 py-1 text-sm text-gray-300 hover:bg-white/10 rounded-md transition-colors duration-150"
+            class="w-full flex items-center px-2 py-1 text-[13px] text-gray-300 hover:bg-white/10 rounded-md transition-colors duration-150"
             :class="{ 'bg-white/5': item.isExpanded }">
             <svg class="w-4 h-4 mr-2 transition-transform duration-150" :class="{ 'rotate-90': item.isExpanded }"
               fill="currentColor" viewBox="0 0 20 20">
@@ -50,7 +50,7 @@
           <div v-if="item.isExpanded && item.children" class="ml-6 mt-1 space-y-1">
             <div v-for="child in item.children" :key="child.id">
               <button @click="selectItem(child)"
-                class="w-full text-left px-2 py-1 text-sm text-gray-300 hover:text-gray-200 hover:bg-white/20 rounded-md transition-colors duration-150"
+                class="w-full text-left px-2 py-1 text-[13px] text-gray-300 hover:text-gray-200 hover:bg-white/20 rounded-md transition-colors duration-150"
                 :class="{ 'bg-white/5 text-gray-200': child.isSelected }">
                 {{ child.name }}
               </button>
@@ -64,7 +64,7 @@
 
 <script setup>
 import { ref, reactive } from 'vue'
-import objectsColumn from '@/assets/images2/objects-column.svg'
+import objectsColumn from '@/assets/images2/objects-column_gray.svg'
 import search from '@/assets/images2/search.svg'
 import rotateLeft from '@/assets/images2/rotate-left.svg'
 import angleLeft from '@/assets/images2/angle-left.svg'
