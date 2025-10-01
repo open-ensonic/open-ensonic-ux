@@ -28,7 +28,8 @@
       v-if="showLeftHandle"
       type="target"
       :position="Position.Left"
-      class="absolute !top-[calc(50%+23px)] transform -translate-y-1/2 !w-[10px] !h-[46px] !rounded !bg-[#193fe0] !border-0"
+      :style="{ backgroundColor: handleColor }"
+      class="absolute !top-[calc(50%+23px)] transform -translate-y-1/2 !w-[10px] !h-[46px] !rounded !border-0"
     />
 
     <!-- 右侧连接点（输出） -->
@@ -36,7 +37,8 @@
       v-if="showRightHandle"
       type="source"
       :position="Position.Right"
-      class="absolute !top-[calc(50%+30px)] transform -translate-y-1/2 !w-[10px] !h-[46px] !rounded !bg-[#ff5a84] !border-0"
+      :style="{ backgroundColor: handleColor }"
+      class="absolute !top-[calc(50%+30px)] transform -translate-y-1/2 !w-[10px] !h-[46px] !rounded !border-0"
     />
   </div>
 </template>
@@ -72,6 +74,10 @@ export default {
     }
   },
   computed: {
+    // 从节点数据中获取连接点颜色
+    handleColor() {
+      return this.data?.handleColor || '#3b82f6'
+    },
     // 计算属性获取节点标签
     nodeLabel() {
       return this.data?.label || '未命名节点'

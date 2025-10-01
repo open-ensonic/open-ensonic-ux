@@ -28,7 +28,8 @@ const initialNodes = [
         Amplitude: 1
         Offset: 0
         Initial Phase (Radians): 0
-      `
+      `,
+      handleColor: '#193fe0' // 蓝色
     }
   },
   {
@@ -39,7 +40,8 @@ const initialNodes = [
       label: 'Throttle',
       content: `Sample Rate: 32k
         Limit: None
-      `
+      `,
+      handleColor: '#193fe0' // 绿色
     }
   },
   {
@@ -52,7 +54,8 @@ const initialNodes = [
         Number of Points: 1.024k
         Sample Rate: 32k
         Autoscale: No
-      `
+      `,
+      handleColor: '#ff5a84' // 黄色
     }
   },
   {
@@ -65,7 +68,8 @@ const initialNodes = [
         FFT Size: 1024
         Center Frequency (Hz): 0
         Bandwidth (Hz): 32k
-      `
+      `,
+      handleColor: '#20e3b2' // 红色
     }
   }
 ]
