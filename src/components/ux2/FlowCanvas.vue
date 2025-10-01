@@ -53,6 +53,9 @@ const { onConnect, addEdges, updateNode } = useVueFlow()
 </template>
 
 <style>
+@import '@vue-flow/core/dist/style.css';
+@import '@vue-flow/core/dist/theme-default.css';
+
 .vue-flow-container {
   width: 100%;
   height: 100%;
