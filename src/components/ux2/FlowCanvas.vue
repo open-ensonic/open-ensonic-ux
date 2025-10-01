@@ -40,6 +40,9 @@ const { onConnect, addEdges, updateNode } = useVueFlow()
   <VueFlow 
     :nodes="initialNodes"
     :edges="initialEdges"
+              :default-viewport="{ zoom: 0.8 }"
+            :min-zoom="0.2"
+            :max-zoom="4"
     class="vue-flow-container"
     @connect="onConnect"
     fit-view-on-init

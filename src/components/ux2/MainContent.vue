@@ -10,7 +10,7 @@ import FlowCanvas from './FlowCanvas.vue'
     <Toolbar />
     
     <!-- 内容区域 - Vue Flow画布 -->
-    <div class="content-area flex-1 bg-white">
+    <div class="content-area flex-1 bg-red-500">
       <FlowCanvas />
     </div>
   </main>
