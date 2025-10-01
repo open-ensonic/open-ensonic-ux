@@ -27,25 +27,25 @@ const emit = defineEmits(['panelToggle'])
 </script>
 
 <template>
-  <aside class="bg-white border-r border-gray-200 w-64 h-full flex flex-col">
+  <aside class="bg-white  w-[80px] h-full flex flex-col">
     <!-- 顶部菜单项 -->
     <div class="flex-1 p-4">
       <ul class="space-y-2">
         <li v-for="item in topMenuItems" :key="item.id" class="menu-item">
-          <button 
+          <button
             @click="togglePanel(item.panel)"
             :class="[
               'menu-link w-full flex flex-col items-center p-3 rounded-lg transition-colors',
               activePanel === item.panel ? 'bg-blue-100 text-blue-700' : 'hover:bg-gray-100 text-gray-700'
             ]"
           >
-            <div 
+            <div
               :class="[
                 'w-8 h-8 rounded-full flex items-center justify-center mb-2',
                 activePanel === item.panel ? 'bg-blue-500' : 'bg-gray-200'
               ]"
             >
-              <span 
+              <span
                 :class="[
                   'text-sm font-medium',
                   activePanel === item.panel ? 'text-white' : 'text-gray-600'
@@ -59,7 +59,7 @@ const emit = defineEmits(['panelToggle'])
         </li>
       </ul>
     </div>
-    
+
     <!-- 底部菜单项 -->
     <div class="p-4 border-t border-gray-200">
       <ul class="space-y-2">
