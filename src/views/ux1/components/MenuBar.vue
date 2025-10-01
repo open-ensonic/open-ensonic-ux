@@ -16,7 +16,9 @@
           </div>
         </div>
       </div>
-      <div class="file-info">{{ currentFile }}</div>
+      <div class="file-info flex items-center gap-5">{{ currentFile }}
+        <img :src="edit" class="w-4 h-4 opacity-35" />
+      </div>
     </div>
     <div class="menu-right">
       <div v-for="(icon, index) in iconButtons" :key="index" class="icon-button" @click="handleIconClick(icon, index)"
@@ -35,6 +37,8 @@ import addFolder from '@/assets/images2/add-folder.svg'
 import trash from '@/assets/images2/trash.svg'
 import pdf from '@/assets/images2/file-pdf.svg'
 import save from '@/assets/images2/disk.svg'
+import edit from '@/assets/images2/edit.svg'
+
 
 const iconButtons = ref([
   {
@@ -72,28 +76,28 @@ const props = defineProps({
     type: Array,
     default: () => [
       {
-        name: 'File',
-        submenu: ['New', 'Open', 'Save', 'Save As', 'Quit']
+        name: '文件(F)',
+        submenu: ['新建', '打开', '保存', '另存为', '退出']
       },
       {
-        name: 'Edit',
-        submenu: ['Undo', 'Redo', 'Copy', 'Paste', 'Delete']
+        name: '编辑(E)',
+        submenu: ['撤销', '重做', '复制', '粘贴', '删除']
       },
       {
-        name: 'View',
-        submenu: ['Zoom In', 'Zoom Out', 'Clear']
+        name: '视图(V)',
+        submenu: ['放大', '缩小', '清除']
       },
       {
-        name: 'Run',
-        submenu: ['Generate', 'Execute', 'Kill']
+        name: '运行(R)',
+        submenu: ['生成', '执行', '终止']
       },
       {
-        name: 'Tools',
-        submenu: ['Filter Design Tool', 'Set Default Theme']
+        name: '工具(T)',
+        submenu: ['滤波器设计工具', '设置默认主题']
       },
       {
-        name: 'Help',
-        submenu: ['Types', 'Keys', 'About']
+        name: '帮助(H)',
+        submenu: ['类型', '快捷键', '关于']
       }
     ]
   },
@@ -141,7 +145,7 @@ const handleSubmenuClick = (menuName, subItem) => {
   align-items: center;
   background-color: #222327;
   color: #ffffff;
-  height: 32px;
+  height: 48px;
   padding: 0 8px;
   font-size: 13px;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -160,6 +164,7 @@ const handleSubmenuClick = (menuName, subItem) => {
 }
 
 .menu-items {
+  color: #ccc;
   display: flex;
   gap: 2px;
 }
@@ -203,6 +208,10 @@ const handleSubmenuClick = (menuName, subItem) => {
 .file-info {
   color: #cccccc;
   font-size: 12px;
+  padding: 4px 20px;
+  border: 1px solid #3a3b40;
+  border-radius: 6px;
+  background-color: #2c2d32;
 }
 
 .menu-right {
