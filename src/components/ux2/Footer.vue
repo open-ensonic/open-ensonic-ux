@@ -15,8 +15,8 @@ const logsIcon = new URL('/src/assets/images/eye.svg', import.meta.url).href
 const emit = defineEmits(['panelToggle'])
 
 const navItems = [
-  { id: 'sandbox', icon: 'bg-blue-500', text: '沙盒环境', panel: 'sandbox' },
-  { id: 'logs', icon: 'bg-green-500', text: '显示日志', panel: 'logs' }
+  { id: 'sandbox', text: '沙盒环境', panel: 'sandbox' },
+  { id: 'logs', text: '显示日志', panel: 'logs' }
 ]
 
 const togglePanel = (panel) => {

@@ -6,7 +6,7 @@ import MainContent from '../../components/ux2/MainContent.vue'
 import Footer from '../../components/ux2/Footer.vue'
 import PanelContainer from '../../components/ux2/PanelContainer.vue'
 
-const activePanel = ref(null)
+const activePanel = ref('components')
 
 const handleSidebarPanelToggle = (panel) => {
   activePanel.value = panel

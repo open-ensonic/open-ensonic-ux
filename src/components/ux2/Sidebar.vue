@@ -2,13 +2,15 @@
 import { ref } from 'vue'
 
 // 左侧边栏组件
-const activePanel = ref(null)
+const activePanel = ref('components')
 
 // 图标引入
 const componentsIcon = new URL('/src/assets/images/objects-column.svg', import.meta.url).href
 const modulesIcon = new URL('/src/assets/images/cube.svg', import.meta.url).href
 const variablesIcon = new URL('/src/assets/images/puzzle-piece.svg', import.meta.url).href
 const historyIcon = new URL('/src/assets/images/code-branch.svg', import.meta.url).href
+const topIcon = new URL('/src/assets/images/top.png', import.meta.url).href
+const bottomIcon = new URL('/src/assets/images/bottom.png', import.meta.url).href
 
 const topMenuItems = [
   { id: 1, icon: componentsIcon, text: '组件', panel: 'components' },
@@ -33,28 +35,38 @@ const emit = defineEmits(['panelToggle'])
 </script>
 
 <template>
-  <aside class="bg-white  w-[80px] h-full flex flex-col shadow relative z-1">
+  <aside class="bg-white  w-[90px] h-full flex flex-col shadow relative z-1">
     <!-- 顶部菜单项 -->
-    <div class="flex-1 py-4">
-      <ul class="space-y-2">
-        <li v-for="item in topMenuItems" :key="item.id" class="menu-item">
+    <div class="flex-1 pb-4 ">
+      <ul class="space-y-3">
+        <li v-for="(item,index) in topMenuItems" :key="item.id" class="menu-item relative">
+          <div class="w-[calc(100%+9%)] absolute left-0 top-[-25px] z-2" v-if="index &&  activePanel === item.panel">
+            <img :src="topIcon" alt="top" class="w-full">
+          </div>
+          <div class="w-[10px] h-full absolute right-[-5px] top-0 bg-[#eaf2fa] z-2 "  v-if="activePanel === item.panel"  />
           <button
             @click="togglePanel(item.panel)"
             :class="[
-              'menu-link w-full flex flex-col items-center p-3 rounded-lg transition-colors',
-              activePanel === item.panel ? 'bg-blue-100 text-blue-700' : 'hover:bg-gray-100 text-gray-700'
+              'menu-link w-full flex flex-col items-center p-3  cursor-pointer',
+              activePanel === item.panel ? 'bg-[#eaf2fa] text-blue-700' : 'text-gray-700'
             ]"
           >
-            <div
-              :class="[
-                'w-8 h-8 rounded-full flex items-center justify-center mb-2',
-                activePanel === item.panel ? 'bg-blue-500' : 'bg-gray-200'
-              ]"
-            >
-              <img :src="item.icon" :alt="item.text" class="w-4 h-4">
+
+            <div class="w-8 h-8 flex items-center justify-center mb-2  ">
+
+              <img
+                :src="item.icon"
+                :alt="item.text"
+                class="w-6 h-6 transition-colors duration-200"
+                :style="{ filter: activePanel === item.panel ? 'invert(18%) sepia(90%) saturate(3000%) hue-rotate(220deg)' : 'invert(42%) sepia(8%) saturate(800%) hue-rotate(210deg)' }"
+              />
+
             </div>
-            <span class="text-sm">{{ item.text }}</span>
+            <span :class="['text-sm', activePanel === item.panel ? 'font-bold' : '']">{{ item.text }}</span>
           </button>
+          <div class="w-[calc(100%+9%)] absolute left-0 bottom-[-25px] z-2 "  v-if="activePanel === item.panel" >
+            <img :src="bottomIcon" alt="top" class="w-full">
+          </div>
         </li>
       </ul>
     </div>
