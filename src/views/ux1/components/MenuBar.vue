@@ -155,7 +155,7 @@ const handleSubmenuClick = (menuName, subItem) => {
 
 .logo {
   font-weight: bold;
-  color: #ffffff;
+  color: #32e084;
   padding: 0 8px;
 }
 

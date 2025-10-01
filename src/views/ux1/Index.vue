@@ -3,6 +3,7 @@ import MenuBar from '@/views/ux1/components/MenuBar.vue'
 import Sidebar from '@/views/ux1/components/Sidebar.vue'
 import LeftNavbar from '@/views/ux1/components/LeftNavbar.vue'
 import Toolbar from '@/views/ux1/components/Toolbar.vue'
+import StatusBar from '@/views/ux1/components/StatusBar.vue'
 
 // 处理菜单点击事件
 const handleMenuClick = (menuItem) => {
@@ -33,6 +34,12 @@ const handleToolClick = (tool) => {
   console.log('Tool clicked:', tool)
   // 在这里添加工具栏点击的逻辑
 }
+
+// 处理状态栏点击事件
+const handleStatusClick = (status) => {
+  console.log('Status clicked:', status)
+  // 在这里添加状态栏点击的逻辑
+}
 </script>
 
 <template>
@@ -62,6 +69,9 @@ const handleToolClick = (tool) => {
         </div>
       </div>
     </div>
+
+    <!-- 底部状态栏 -->
+    <StatusBar @status-click="handleStatusClick" />
   </div>
 </template>
 
