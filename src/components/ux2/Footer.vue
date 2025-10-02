@@ -38,7 +38,7 @@ const panelContent = {
 <template>
   <div class="footer-container">
     <!-- 底部状态栏 -->
-    <footer class="footer bg-[#f6f6f6] shadow-[0_-2px_4px_rgba(0,0,0,0.1)] px-6 py-1 text-xs">
+    <footer class="footer bg-[#f6f6f6]  border-t border-gray-200 px-6 py-1 text-xs">
       <div class="flex items-center justify-between h-full">
         <!-- 左侧版本信息 -->
         <div class="version-info">

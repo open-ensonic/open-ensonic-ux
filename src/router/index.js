@@ -1,20 +1,24 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHashHistory } from 'vue-router'
 
 // 创建路由实例
 const router = createRouter({
-  history: createWebHistory(),
+  history: createWebHashHistory(),
   routes: [
+    {
+      path: '/',
+      name: 'home',
+      component: () => import('../views/Home.vue')
+    },
     {
       path: '/ux1',
       name: 'ux1',
       component: () => import('../views/ux1/Index.vue')
     },
-      {
-          path: '/ux2',
-          name: 'ux2',
-          component: () => import('../views/ux2/Index.vue')
-      }
-    // 可以在这里添加更多路由
+    {
+      path: '/ux2',
+      name: 'ux2',
+      component: () => import('../views/ux2/Index.vue')
+    }
   ]
 })
 

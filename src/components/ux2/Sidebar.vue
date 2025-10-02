@@ -83,7 +83,7 @@ const emit = defineEmits(['panelToggle'])
     </div>
 
     <!-- 底部菜单项 -->
-    <div class="p-4 border-t border-gray-200">
+    <div class="p-4 ">
       <ul class="space-y-2">
         <li v-for="item in bottomMenuItems" :key="item.id" class="menu-item">
           <a href="#" class="menu-link flex flex-col items-center p-3 rounded-lg text-gray-700">
