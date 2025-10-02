@@ -3,11 +3,11 @@
     <!-- 导航图标列表 -->
     <div class="flex flex-col space-y-4">
       <button v-for="(item, index) in topNavItems" :key="index" @click="setActive(index)" :class="[
-        'rounded-lg w-8 h-8 flex items-center justify-center transition-colors duration-200',
-        activeItem === index ? 'bg-white/20' : 'text-gray-400 hover:text-white hover:bg-white/20'
+        'rounded-lg w-8 h-8 flex items-center justify-center transition-colors duration-200 cursor-pointer',
+        activeItem === index ? 'bg-white/10 text-white' : 'text-gray-400 hover:text-white hover:bg-white/10'
       ]">
         <!-- 图片图标 -->
-        <img :src="item" class="w-4 h-4" :class="activeItem === index ? '': 'opacity-50'">
+        <img :src="item" class="w-4 h-4 transition-all duration-200" :class="activeItem === index ? 'filter brightness-0 invert' : 'opacity-50 hover:filter hover:brightness-0 hover:invert'">
       </button>
     </div>
   </div>
