@@ -3,30 +3,42 @@
     <!-- 左侧工具按钮组 -->
     <div class="flex items-center space-x-1">
       <div v-for="(tool, index) in leftTools" :key="index">
-        <img
-            v-if="tool"
-            @click="handleToolClick(tool)"
-            :src="tool.src"
-            :title="tool.tooltip"
-            class="w-8 h-8 p-2 cursor-pointer text-gray-400 hover:text-white hover:bg-white/10 rounded transition-colors duration-150 hover:brightness-0 hover:invert hover:scale-110 transition-all duration-200"
-        />
+        <div v-if="tool" class="relative group" @click="handleToolClick(tool)">
+          <img :src="tool.src"
+            class="w-8 h-8 p-2 cursor-pointer text-gray-400 hover:text-white hover:bg-white/10 rounded transition-colors duration-150 hover:brightness-0 hover:invert hover:scale-110 transition-all duration-200" />
+          <!-- 自定义 Tooltip -->
+          <div
+            class="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-50">
+            <div class="bg-gray-800 text-white text-xs px-2 py-1 rounded shadow-lg whitespace-nowrap">
+              {{ tool.tooltip }}
+              <!-- 向下箭头 -->
+              <div
+                class="absolute bottom-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-b-4 border-transparent border-b-gray-800">
+              </div>
+            </div>
+          </div>
+        </div>
         <div v-else class="w-px h-6 bg-gray-600 mx-2"></div>
       </div>
-
     </div>
-
-
 
     <!-- 右侧状态按钮组 -->
     <div class="ml-auto flex items-center space-x-1">
-      <img
-        v-for="(tool,index) in statusTools"
-        :key="index"
-        @click="handleToolClick(tool)"
-        :src="tool.src"
-        :title="tool.tooltip"
-        class="w-8 h-8 p-2 cursor-pointer text-gray-400 hover:text-white hover:bg-white/10 rounded transition-colors duration-150 hover:brightness-0 hover:invert hover:scale-110 transition-all duration-200"
-      />
+      <div v-for="(tool, index) in statusTools" :key="index" class="relative group" @click="handleToolClick(tool)">
+        <img :src="tool.src"
+          class="w-8 h-8 p-2 cursor-pointer text-gray-400 hover:text-white hover:bg-white/10 rounded transition-colors duration-150 hover:brightness-0 hover:invert hover:scale-110 transition-all duration-200" />
+        <!-- 自定义 Tooltip -->
+        <div
+          class="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-50">
+          <div class="bg-gray-800 text-white text-xs px-2 py-1 rounded shadow-lg whitespace-nowrap">
+            {{ tool.tooltip }}
+            <!-- 向下箭头 -->
+            <div
+              class="absolute bottom-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-b-4 border-transparent border-b-gray-800">
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -68,7 +80,7 @@ const leftTools = reactive([
     tooltip: '粘贴',
     src: paste
   },
-    null,
+  null,
   {
     tooltip: '撤回',
     src: undo
@@ -77,7 +89,7 @@ const leftTools = reactive([
     tooltip: '重做',
     src: redo
   },
-    null,
+  null,
   {
     tooltip: '左旋转',
     src: rotateLeft
@@ -86,7 +98,7 @@ const leftTools = reactive([
     tooltip: '右旋转',
     src: rotateRight
   },
-    null,
+  null,
   {
     tooltip: '撤回',
     src: sub
