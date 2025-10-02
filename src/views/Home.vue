@@ -46,7 +46,7 @@ const navigateToVersion = (version, theme) => {
               📊
             </div>
             <h4 class="text-xl font-semibold mb-2">版本一</h4>
-            <p class="opacity-80">经典界面设计，功能完整</p>
+            <p class="opacity-80">经典界面设计，稳定可靠</p>
           </div>
         </a>
 
