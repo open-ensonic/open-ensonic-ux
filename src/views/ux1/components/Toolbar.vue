@@ -3,14 +3,13 @@
     <!-- 左侧工具按钮组 -->
     <div class="flex items-center space-x-1">
       <div v-for="(tool, index) in leftTools" :key="index">
-        <button
+        <img
             v-if="tool"
             @click="handleToolClick(tool)"
-            class="w-8 h-8 flex items-center justify-center text-gray-400 hover:text-white hover:bg-white/10 rounded transition-colors duration-150"
+            :src="tool.src"
             :title="tool.tooltip"
-        >
-          <img :src="tool.src" class="w-4 h-4 hover:brightness-0 hover:invert"/>
-        </button>
+            class="w-8 h-8 p-2 cursor-pointer text-gray-400 hover:text-white hover:bg-white/10 rounded transition-colors duration-150 hover:brightness-0 hover:invert hover:scale-110 transition-all duration-200"
+        />
         <div v-else class="w-px h-6 bg-gray-600 mx-2"></div>
       </div>
 
@@ -20,15 +19,14 @@
 
     <!-- 右侧状态按钮组 -->
     <div class="ml-auto flex items-center space-x-1">
-      <button 
+      <img
         v-for="(tool,index) in statusTools"
         :key="index"
         @click="handleToolClick(tool)"
-        class="w-8 h-8 flex items-center justify-center text-gray-400 hover:text-white hover:bg-white/10 rounded transition-colors duration-150"
+        :src="tool.src"
         :title="tool.tooltip"
-      >
-        <img :src="tool.src" class="w-4 h-4 hover:brightness-0 hover:invert"/>
-      </button>
+        class="w-8 h-8 p-2 cursor-pointer text-gray-400 hover:text-white hover:bg-white/10 rounded transition-colors duration-150 hover:brightness-0 hover:invert hover:scale-110 transition-all duration-200"
+      />
     </div>
   </div>
 </template>
