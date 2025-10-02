@@ -1,9 +1,9 @@
 <script setup>
 import { VueFlow, useVueFlow } from '@vue-flow/core'
 import { Background } from '@vue-flow/background'
-import { Controls } from '@vue-flow/controls'
 import CustomNode from './CustomNodes.vue'
 import CustomEdge from './CustomEdge.vue'
+import CustomControls from './CustomControls.vue'
 
 // 节点类型定义
 const nodeTypes = {
@@ -98,6 +98,26 @@ const handleEdgeClick = (event) => {
   console.log('边点击:', event)
   // 这里可以添加选中边或显示关闭按钮的逻辑
 }
+
+// 自定义 controls 事件处理
+const { zoomIn, zoomOut, fitView } = useVueFlow()
+
+const handleZoomIn = () => {
+  zoomIn()
+}
+
+const handleZoomOut = () => {
+  zoomOut()
+}
+
+const handleFitView = () => {
+  fitView()
+}
+
+const handleLockToggle = (locked) => {
+  console.log('画布锁定状态:', locked)
+  // 这里可以添加锁定画布的逻辑
+}
 </script>
 
 <template>
@@ -117,14 +137,19 @@ const handleEdgeClick = (event) => {
     :fit-view-on-init-options="{ padding: 0 }"
   >
     <Background pattern-color="#aaa" gap="20" />
-    <Controls />
+    <CustomControls 
+      @zoom-in="handleZoomIn"
+      @zoom-out="handleZoomOut"
+      @fit-view="handleFitView"
+      @lock-toggle="handleLockToggle"
+    />
   </VueFlow>
 </template>
 
 <style>
 @import '@vue-flow/core/dist/style.css';
 @import '@vue-flow/core/dist/theme-default.css';
-@import '@vue-flow/controls/dist/style.css';
+
 
 .vue-flow-container {
   width: 100%;
