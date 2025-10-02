@@ -21,9 +21,16 @@
       </div>
     </div>
     <div class="menu-right">
-      <div v-for="(icon, index) in iconButtons" :key="index" class="icon-button" @click="handleIconClick(icon, index)"
-        :title="icon.tooltip">
-        <img :src="icon.src" class="w-4 h-4 hover:brightness-0 hover:invert" />
+      <div v-for="(icon, index) in iconButtons" :key="index" class="relative group" @click="handleIconClick(icon, index)">
+        <img :src="icon.src" class="w-8 h-8 p-2 cursor-pointer text-gray-400 hover:text-white hover:bg-white/10 rounded transition-colors duration-150 hover:brightness-0 hover:invert hover:scale-110 transition-all duration-200" />
+        <!-- 自定义 Tooltip -->
+        <div class="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-50">
+          <div class="bg-gray-800 text-white text-xs px-2 py-1 rounded shadow-lg whitespace-nowrap">
+            {{ icon.tooltip }}
+            <!-- 向下箭头 -->
+            <div class="absolute bottom-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-b-4 border-transparent border-b-gray-800"></div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -218,17 +225,5 @@ const handleSubmenuClick = (menuName, subItem) => {
   display: flex;
   align-items: center;
   gap: 4px;
-}
-
-.icon-button {
-  padding: 4px 6px;
-  cursor: pointer;
-  border-radius: 2px;
-  transition: background-color 0.2s;
-  font-size: 14px;
-}
-
-.icon-button:hover {
-  background-color: #404040;
 }
 </style>
