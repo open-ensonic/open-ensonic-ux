@@ -79,6 +79,7 @@ const leftTools = reactive([
     tooltip: '重做',
     src: redo
   },
+    null,
   {
     tooltip: '左旋转',
     src: rotateLeft

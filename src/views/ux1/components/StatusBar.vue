@@ -77,7 +77,7 @@ const handleStatusClick = (item) => {
     cursor: pointer;
     padding: 2px 6px;
     border-radius: 3px;
-    font-size: 10px;
+    font-size: 12px;
     font-family: inherit;
     transition: all 0.2s ease;
 }
