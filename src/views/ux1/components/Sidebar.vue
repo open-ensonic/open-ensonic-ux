@@ -1,10 +1,10 @@
 <template>
-  <div class="w-64 h-screen border-r border-[#2d2e2d] bg-[#1d1e21] text-gray-200 flex flex-col ">
+  <div class="w-64 h-screen  bg-[#1d1e21] text-gray-200 flex flex-col ">
     <!-- 头部标题 -->
     <div class="flex items-center px-4 py-1 border-b border-[#26272a]">
       <div class="flex items-center space-x-2">
         <div class=" rounded-sm flex items-center justify-center">
-          <img :src="objectsColumn" class="w-5 h-5 opacity-60" />
+          <img :src="objectsColumn" class="w-4 h-4 opacity-60" />
         </div>
         <span class="text-sm text-gray-2100">组件</span>
       </div>
@@ -68,7 +68,7 @@
           <button @click="toggleItem(item.id)"
             class="w-full flex items-center px-2 py-1 text-[13px] text-gray-300 hover:bg-white/10 rounded-md transition-colors duration-150"
             :class="{ 'bg-white/5': item.isExpanded }">
-            <svg class="w-4 h-4 mr-2 transition-transform duration-150" :class="{ 'rotate-90': item.isExpanded }"
+            <svg class="w-4 h-4 mr-2 transition-transform duration-150 text-gray-500" :class="{ 'rotate-90': item.isExpanded }"
               fill="currentColor" viewBox="0 0 20 20">
               <path fill-rule="evenodd"
                 d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 111.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"

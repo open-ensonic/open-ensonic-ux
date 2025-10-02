@@ -92,6 +92,7 @@ const handleStatusClick = (status) => {
   flex: 1;
   display: flex;
   flex-direction: column;
+  margin-left: 4px;
 }
 
 .main-content {
