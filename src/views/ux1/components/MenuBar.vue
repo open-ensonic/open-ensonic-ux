@@ -225,5 +225,6 @@ const handleSubmenuClick = (menuName, subItem) => {
   display: flex;
   align-items: center;
   gap: 4px;
+  margin-right: 10px;
 }
 </style>
