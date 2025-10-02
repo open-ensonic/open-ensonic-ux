@@ -1,7 +1,7 @@
 <template>
   <div class="w-64 h-screen bg-[#1d1e21] text-gray-200 flex flex-col">
     <!-- 头部标题 -->
-    <div class="flex items-center px-4 py-3 border-b border-[#26272a]">
+    <div class="flex items-center px-4 py-1 border-b border-[#26272a]">
       <div class="flex items-center space-x-2">
         <div class=" rounded-sm flex items-center justify-center">
           <img :src="objectsColumn" class="w-5 h-5 opacity-60" />
