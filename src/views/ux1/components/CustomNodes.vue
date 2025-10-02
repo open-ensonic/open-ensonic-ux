@@ -5,9 +5,9 @@
 
 
     <!-- 内容区域 -->
-    <div class="relative z-10 p-3 ">
+    <div class="relative z-10 px-3 pt-3 ">
       <!-- 头部区域 -->
-      <div class="flex justify-between items-center mb-2 pb-2  ">
+      <div class="flex justify-between items-center mb-0 pb-2  ">
         <h3 class="text-sm font-bold text-[#80bbff] m-0 flex-1 px-3 ">{{ nodeLabel }}</h3>
         <button
           class="w-6 h-6 rounded-full flex items-center justify-center text-gray-500 hover:bg-gray-100 transition-colors border-none bg-transparent text-lg"
@@ -18,7 +18,7 @@
       </div>
 
       <!-- 主体内容 -->
-      <div class="px-3 text-xs text-gray-500">
+      <div class="p-3 text-xs text-gray-500 border-t border-[#333] ">
         <div v-if="Array.isArray(data?.content)" class="space-y-1">
           <div v-for="(item, index) in data.content" :key="index" class="flex items-center">
             <span class="text-[#ae89fe]">{{ item.name }}:</span>
