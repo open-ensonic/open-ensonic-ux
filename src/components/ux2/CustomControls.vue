@@ -27,8 +27,8 @@ const handleLockToggle = () => {
   <div class="custom-controls">
     <div class="control-group">
       <!-- 缩放控制 -->
-      <button 
-        class="control-btn" 
+      <button
+        class="control-btn"
         @click="handleZoomIn"
         title="放大"
       >
@@ -36,8 +36,8 @@ const handleLockToggle = () => {
           <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
         </svg>
       </button>
-      <button 
-        class="control-btn" 
+      <button
+        class="control-btn"
         @click="handleZoomOut"
         title="缩小"
       >
@@ -47,8 +47,8 @@ const handleLockToggle = () => {
       </button>
 
       <!-- 视图控制 -->
-      <button 
-        class="control-btn" 
+      <button
+        class="control-btn"
         @click="handleFitView"
         title="适应视图"
       >
@@ -58,8 +58,8 @@ const handleLockToggle = () => {
       </button>
 
       <!-- 锁定控制 -->
-      <button 
-        class="control-btn" 
+      <button
+        class="control-btn"
         @click="handleLockToggle"
         :class="{ 'active': isLocked }"
         :title="isLocked ? '解锁画布' : '锁定画布'"
@@ -85,7 +85,7 @@ const handleLockToggle = () => {
   display: flex;
   gap: 0;
   background: white;
-  border-radius: 8px;
+  border-radius: 40px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
   overflow: hidden;
 }
@@ -101,12 +101,8 @@ const handleLockToggle = () => {
   justify-content: center;
   transition: all 0.2s ease;
   color: #64748b;
-  border-right: 1px solid #f1f5f9;
 }
 
-.control-btn:last-child {
-  border-right: none;
-}
 
 .control-btn:hover {
   background: #f1f5f9;
@@ -114,8 +110,8 @@ const handleLockToggle = () => {
 }
 
 .control-btn.active {
-  background: #3b82f6;
-  color: white;
+  background: #f1f5f9;
+  color: gray;
 }
 
 .control-btn:active {
@@ -127,17 +123,17 @@ const handleLockToggle = () => {
   .control-group {
     background: #374151;
   }
-  
+
   .control-btn {
     color: #9ca3af;
     border-right-color: #4b5563;
   }
-  
+
   .control-btn:hover {
     background: #4b5563;
     color: #e5e7eb;
   }
-  
+
   .control-btn.active {
     background: #2563eb;
     color: white;
