@@ -1,17 +1,39 @@
 <template>
   <div class="w-full bg-white text-gray-500 flex flex-col rounded-xl shadow ">
     <!-- 头部标题 -->
-    <div class="flex items-center px-4 py-4 ">
+    <div class="flex items-center px-4 py-4 relative z-50">
       <div class="flex items-center space-x-2 ">
         <div class=" rounded-sm flex items-center justify-center">
           <img :src="objectsColumnGray" class="w-4 h-4" />
         </div>
         <span class="text-md font-medium text-gray-500">组件</span>
       </div>
-      <div class="ml-auto flex space-x-2">
-        <img :src="search" class="w-4 h-4" />
-        <img :src="rotateLeft" class="w-4 h-4" />
-        <img :src="angleLeft" class="w-4 h-4" />
+      <!-- 头部按钮 -->
+      <div class="ml-auto flex space-x-4 relative z-50">
+        <div class="tool-icon group relative">
+          <div class="rounded flex items-center justify-center">
+            <img :src="search" class="w-4 h-4" />
+          </div>
+          <div class="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 px-2 py-1 bg-gray-800/90 text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap z-50 before:content-[''] before:absolute before:bottom-full before:left-1/2 before:transform before:-translate-x-1/2 before:border-4 before:border-transparent before:border-b-gray-800/90">
+            搜索
+          </div>
+        </div>
+        <div class="tool-icon group relative">
+          <div class="rounded flex items-center justify-center">
+            <img :src="rotateLeft" class="w-4 h-4" />
+          </div>
+          <div class="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 px-2 py-1 bg-gray-800/90 text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap z-50 before:content-[''] before:absolute before:bottom-full before:left-1/2 before:transform before:-translate-x-1/2 before:border-4 before:border-transparent before:border-b-gray-800/90">
+            旋转
+          </div>
+        </div>
+        <div class="tool-icon group relative">
+          <div class="rounded flex items-center justify-center">
+            <img :src="angleLeft" class="w-4 h-4" />
+          </div>
+          <div class="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 px-2 py-1 bg-gray-800/90 text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap z-50 before:content-[''] before:absolute before:bottom-full before:left-1/2 before:transform before:-translate-x-1/2 before:border-4 before:border-transparent before:border-b-gray-800/90">
+            返回
+          </div>
+        </div>
       </div>
     </div>
 
@@ -215,3 +237,14 @@ const selectItem = (child) => {
 
 const emit = defineEmits(['item-selected'])
 </script>
+
+<style scoped>
+.tool-icon {
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.tool-icon:hover {
+  transform: scale(1.1);
+}
+</style>
