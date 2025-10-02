@@ -33,7 +33,7 @@ const handleStatusClick = (item) => {
 <style scoped>
 .status-bar {
     height: 24px;
-    background-color: #31313d;
+    background-color: #313133;
     color: #999;
     display: flex;
     justify-content: space-between;
@@ -41,7 +41,7 @@ const handleStatusClick = (item) => {
     padding: 0 12px;
     font-size: 12px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    border-top: 1px solid #404051;
+    border-top: 1px solid #404046;
 }
 
 .status-left,

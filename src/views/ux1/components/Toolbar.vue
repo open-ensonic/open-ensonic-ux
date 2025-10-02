@@ -1,5 +1,5 @@
 <template>
-  <div class="h-10 bg-[#191a1d] border-b border-[#26272a] flex items-center px-4 space-x-1">
+  <div class="h-10 bg-[#191a1d] border-b border-[#292a2d] flex items-center px-4 space-x-1">
     <!-- 左侧工具按钮组 -->
     <div class="flex items-center space-x-1">
       <div v-for="(tool, index) in leftTools" :key="index">

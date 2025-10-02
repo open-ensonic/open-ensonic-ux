@@ -1,5 +1,5 @@
 <template>
-  <div class="w-64 h-screen bg-[#1d1e21] text-gray-200 flex flex-col">
+  <div class="w-64 h-screen border-r border-[#2d2e2d] bg-[#1d1e21] text-gray-200 flex flex-col">
     <!-- 头部标题 -->
     <div class="flex items-center px-4 py-1 border-b border-[#26272a]">
       <div class="flex items-center space-x-2">

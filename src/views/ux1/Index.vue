@@ -4,6 +4,7 @@ import Sidebar from '@/views/ux1/components/Sidebar.vue'
 import LeftNavbar from '@/views/ux1/components/LeftNavbar.vue'
 import Toolbar from '@/views/ux1/components/Toolbar.vue'
 import StatusBar from '@/views/ux1/components/StatusBar.vue'
+import FlowCanvas from "@/views/ux1/components/FlowCanvas.vue";
 
 // 处理菜单点击事件
 const handleMenuClick = (menuItem) => {
@@ -62,10 +63,7 @@ const handleStatusClick = (status) => {
 
         <!-- 主内容区域 -->
         <div class="main-content">
-          <div class="p-6">
-            <h1 class="text-2xl font-bold text-gray-800 mb-4">主内容区域</h1>
-            <p class="text-gray-600">这里是主要内容区域，可以根据侧边栏选择的组件显示相应内容。</p>
-          </div>
+          <FlowCanvas />
         </div>
       </div>
     </div>
@@ -98,7 +96,7 @@ const handleStatusClick = (status) => {
 
 .main-content {
   flex: 1;
-  background-color: #ffffff;
+  background-color: #202020;
   overflow-y: auto;
 }
 </style>
