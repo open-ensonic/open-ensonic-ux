@@ -22,14 +22,15 @@ const initialNodes = [
     position: { x: 200, y: 300 },
     data: {
       label: 'Signal Source',
-      content: `Sample Rate: 32k
-        Waveform: Sine
-        Frequency: 1k
-        Amplitude: 1
-        Offset: 0
-        Initial Phase (Radians): 0
-      `,
-      handleColor: '#193fe0' // 蓝色
+      content: [
+        { name: 'Sample Rate', value: '32k' },
+        { name: 'Waveform', value: 'Sine' },
+        { name: 'Frequency', value: '1k' },
+        { name: 'Amplitude', value: '1' },
+        { name: 'Offset', value: '0' },
+        { name: 'Initial Phase (Radians)', value: '0' }
+      ],
+      handleColor: '#f29d78' // 蓝色
     }
   },
   {
@@ -38,10 +39,11 @@ const initialNodes = [
     position: { x: 600, y: 400 },
     data: {
       label: 'Throttle',
-      content: `Sample Rate: 32k
-        Limit: None
-      `,
-      handleColor: '#193fe0' // 绿色
+      content: [
+        { name: 'Sample Rate', value: '32k' },
+        { name: 'Limit', value: 'None' }
+      ],
+      handleColor: '#ffd702' // 绿色
     }
   },
   {
@@ -50,12 +52,13 @@ const initialNodes = [
     position: { x: 1000, y: 200 },
     data: {
       label: 'QT GUI Time Sink',
-      content: `Name: Time Display
-        Number of Points: 1.024k
-        Sample Rate: 32k
-        Autoscale: No
-      `,
-      handleColor: '#ff5a84' // 黄色
+      content: [
+        { name: 'Name', value: 'Time Display' },
+        { name: 'Number of Points', value: '1.024k' },
+        { name: 'Sample Rate', value: '32k' },
+        { name: 'Autoscale', value: 'No' }
+      ],
+      handleColor: '#f29d78' // 黄色
     }
   },
   {
@@ -64,12 +67,13 @@ const initialNodes = [
     position: { x: 1200, y: 500 },
     data: {
       label: 'QT GUI Frequency Sink',
-      content: `Name: Frequency Display
-        FFT Size: 1024
-        Center Frequency (Hz): 0
-        Bandwidth (Hz): 32k
-      `,
-      handleColor: '#20e3b2' // 红色
+      content: [
+        { name: 'Name', value: 'Frequency Display' },
+        { name: 'FFT Size', value: '1024' },
+        { name: 'Center Frequency (Hz)', value: '0' },
+        { name: 'Bandwidth (Hz)', value: '32k' }
+      ],
+      handleColor: '#f29d78' // 红色
     }
   }
 ]
@@ -136,8 +140,8 @@ const handleLockToggle = (locked) => {
     :fit-view-on-init="false"
     :fit-view-on-init-options="{ padding: 0 }"
   >
-    <Background pattern-color="#aaa" gap="20" />
-    <CustomControls 
+<!--    <Background pattern-color="#aaa" gap="20" />-->
+    <CustomControls
       @zoom-in="handleZoomIn"
       @zoom-out="handleZoomOut"
       @fit-view="handleFitView"
@@ -155,7 +159,7 @@ const handleLockToggle = (locked) => {
   width: 100%;
   height: 100%;
   min-height: 0;
-  background: #222222;
+  background: #1c1d20;
 
 }
 

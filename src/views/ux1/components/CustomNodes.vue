@@ -1,6 +1,6 @@
 <template>
   <!-- 自定义节点组件 -->
-  <div class=" w-60  rounded-lg overflow-hidden  shadow-xl/3 !bg-white/40 border-0">
+  <div class=" w-60  overflow-hidden  bg-black border-t border-white">
     <!-- 半透明背景 -->
 
 
@@ -8,7 +8,7 @@
     <div class="relative z-10 p-3 ">
       <!-- 头部区域 -->
       <div class="flex justify-between items-center mb-2 pb-2  ">
-        <h3 class="text-sm font-semibold text-gray-500 m-0 flex-1 text-center">{{ nodeLabel }}</h3>
+        <h3 class="text-sm font-bold text-[#80bbff] m-0 flex-1 px-3 ">{{ nodeLabel }}</h3>
         <button
           class="w-6 h-6 rounded-full flex items-center justify-center text-gray-500 hover:bg-gray-100 transition-colors border-none bg-transparent text-lg"
           @click="handleClose"
@@ -18,8 +18,16 @@
       </div>
 
       <!-- 主体内容 -->
-      <div class="bg-white rounded-lg p-3 text-xs text-gray-500 whitespace-pre-line shadow/5 ">
-        {{ data?.content || '' }}
+      <div class="px-3 text-xs text-gray-500">
+        <div v-if="Array.isArray(data?.content)" class="space-y-1">
+          <div v-for="(item, index) in data.content" :key="index" class="flex items-center">
+            <span class="text-[#ae89fe]">{{ item.name }}:</span>
+            <span class="text-[#81d99f] ">{{ item.value }}</span>
+          </div>
+        </div>
+        <div v-else class="whitespace-pre-line">
+          {{ data?.content || '' }}
+        </div>
       </div>
     </div>
 
@@ -29,7 +37,7 @@
       type="target"
       :position="Position.Left"
       :style="{ backgroundColor: handleColor }"
-      class="absolute !top-[calc(50%+23px)] transform -translate-y-1/2 !w-[10px] !h-[46px] !rounded !border-0"
+      class="absolute !top-[calc(50%+8px)] transform -translate-y-1/2 !w-[10px] !h-[16px] !rounded-none !border-0"
     />
 
     <!-- 右侧连接点（输出） -->
@@ -38,7 +46,7 @@
       type="source"
       :position="Position.Right"
       :style="{ backgroundColor: handleColor }"
-      class="absolute !top-[calc(50%+30px)] transform -translate-y-1/2 !w-[10px] !h-[46px] !rounded !border-0"
+      class="absolute !top-[calc(50%+12px)] transform -translate-y-1/2 !w-[10px] !h-[16px] !rounded-none !border-0"
     />
   </div>
 </template>

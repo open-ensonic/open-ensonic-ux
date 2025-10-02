@@ -77,7 +77,7 @@ const handleStatusClick = (status) => {
 .app-container {
   width: 100%;
   height: 100vh;
-  background-color: #f5f5f5;
+  background-color: #222426;
   display: flex;
   flex-direction: column;
 }
@@ -96,7 +96,8 @@ const handleStatusClick = (status) => {
 
 .main-content {
   flex: 1;
-  background-color: #202020;
+  background-color: #1a1b1d;
   overflow-y: auto;
+  margin-top: 3px;
 }
 </style>

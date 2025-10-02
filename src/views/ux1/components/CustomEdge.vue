@@ -1,5 +1,5 @@
 <template>
-  <BaseEdge :id="props.id" :path="path[0]" :style="{ stroke: '#a0aec0', strokeWidth: 1 }" />
+  <BaseEdge :id="props.id" :path="path[0]" :style="{ stroke: '#666', strokeWidth: 1 }" />
 
   <EdgeLabelRenderer>
     <div
@@ -11,7 +11,7 @@
       class="nodrag nopan"
     >
       <div
-        class="bg-white rounded-full shadow-md cursor-pointer transition-colors w-6 h-6 flex items-center justify-center"
+        class="bg-black text-white rounded-full shadow-md cursor-pointer transition-colors w-6 h-6 flex items-center justify-center"
         @click="removeEdge"
       >
         ×

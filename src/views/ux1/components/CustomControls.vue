@@ -25,7 +25,7 @@ const handleLockToggle = () => {
 
 <template>
   <div class="custom-controls">
-    <div class="control-group">
+    <div class="control-group bg-black">
       <!-- 缩放控制 -->
       <button
         class="control-btn"
@@ -84,7 +84,6 @@ const handleLockToggle = () => {
 .control-group {
   display: flex;
   gap: 0;
-  background: white;
   border-radius: 40px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
   overflow: hidden;
@@ -105,13 +104,13 @@ const handleLockToggle = () => {
 
 
 .control-btn:hover {
-  background: #f1f5f9;
+  background: #1a1a1a;
   color: #334155;
 }
 
 .control-btn.active {
-  background: #f1f5f9;
-  color: gray;
+  background: #1a1a1a;
+  color: white;
 }
 
 .control-btn:active {

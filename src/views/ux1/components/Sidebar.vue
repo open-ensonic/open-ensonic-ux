@@ -1,5 +1,5 @@
 <template>
-  <div class="w-64 h-screen border-r border-[#2d2e2d] bg-[#1d1e21] text-gray-200 flex flex-col">
+  <div class="w-64 h-screen border-r border-[#2d2e2d] bg-[#1d1e21] text-gray-200 flex flex-col ">
     <!-- 头部标题 -->
     <div class="flex items-center px-4 py-1 border-b border-[#26272a]">
       <div class="flex items-center space-x-2">
@@ -61,7 +61,7 @@
     </div>
 
     <!-- 菜单列表 -->
-    <div class="flex-1 overflow-y-auto">
+    <div class="flex-1 overflow-y-auto [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
       <nav class="px-2">
         <!-- 可折叠菜单项 -->
         <div v-for="item in menuItems" :key="item.id" class="mb-1">
@@ -246,39 +246,4 @@ const selectItem = (child) => {
 const emit = defineEmits(['item-selected'])
 </script>
 
-<style scoped>
-/* 暗色滚动条样式 */
-.overflow-y-auto::-webkit-scrollbar {
-  width: 8px;
-}
 
-.overflow-y-auto::-webkit-scrollbar-track {
-  background: #2a2b2e;
-  border-radius: 4px;
-}
-
-.overflow-y-auto::-webkit-scrollbar-thumb {
-  background: #4a4b4f;
-  border-radius: 4px;
-  transition: background-color 0.2s ease;
-}
-
-.overflow-y-auto::-webkit-scrollbar-thumb:hover {
-  background: #5a5b5f;
-}
-
-.overflow-y-auto::-webkit-scrollbar-thumb:active {
-  background: #6a6b6f;
-}
-
-/* Firefox 滚动条样式 */
-.overflow-y-auto {
-  scrollbar-width: thin;
-  scrollbar-color: #4a4b4f #2a2b2e;
-}
-
-/* 滚动条角落样式 */
-.overflow-y-auto::-webkit-scrollbar-corner {
-  background: #2a2b2e;
-}
-</style>
